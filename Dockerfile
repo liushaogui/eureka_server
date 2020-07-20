@@ -7,7 +7,9 @@ FROM runcare/openjdk-jre1.8
 # 更新版本1
 MAINTAINER runcare<larrygui@foxmail.com>
 
-COPY eureka-0.0.1-SNAPSHOT.jar /root
+ENV EUREKA_DOWNLOAD_URL  http://cdn01.qikesh.com/eureka-0.0.1-SNAPSHOT.jar
+
+RUN curl -L --silent $EUREKA_DOWNLOAD_URL  >  /root/eureka-0.0.1-SNAPSHOT.jar
 
 WORKDIR	/root
 
